@@ -17,7 +17,7 @@ const navLinks = [
     ] 
   },
   { name: "Packages", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

@@ -4,10 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Clock, Info, Plane, Hotel, Utensils, Sparkles, ChevronRight, X, Search, Car } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const PackageCard = ({ pkg }: { pkg: any }) => {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const [loadedImages, setLoadedImages] = useState<{ [key: string]: boolean }>({});
+  const router = useRouter();
+  const handleNavigation = () => {
+    // You can add any pre-navigation logic here (like analytics)
+    router.push("/tours/assam/45dkdj");
+  };
 
   return (
     <>
@@ -113,12 +119,17 @@ export const PackageCard = ({ pkg }: { pkg: any }) => {
           
           <div className="flex flex-col w-full gap-3">
             {/* The "Pro" Responsive Button */}
-            <button className="relative group/btn overflow-hidden w-full bg-blue-600 text-white py-4 px-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all active:scale-95 shadow-xl shadow-blue-100">
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
-              <span className="relative flex items-center justify-center gap-2">
-                Book Now <ChevronRight size={18} />
-              </span>
-            </button>
+            <button 
+      onClick={handleNavigation}
+      className="relative group/btn overflow-hidden w-full bg-blue-600 text-white py-4 px-6 rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest transition-all active:scale-95 shadow-xl shadow-blue-100"
+    >
+      {/* Shine Effect */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
+      
+      <span className="relative flex items-center justify-center gap-2">
+        Book Now <ChevronRight size={18} />
+      </span>
+    </button>
             <Link href={`/tours/assam/${pkg.id}`} className="text-[10px] font-black text-blue-800 hover:text-blue-600 uppercase tracking-[0.2em] transition-colors">
               View Itinerary
             </Link>

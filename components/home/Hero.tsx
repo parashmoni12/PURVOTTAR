@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
 
-const images = ["/1.jpeg", "/2.png", "/3.jpg"];
+const images = [ "/3.jpg","/2.png"];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
